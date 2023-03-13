@@ -2,11 +2,9 @@ let path = require('path');
 let express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../", "views", "contactUs.html"))
-})
+let controller = require('../controller/controller.js');
 
-router.post('/', (req, res, next) => {
-  res.redirect('/success');
-})
+router.get("/", controller.contectUsFile);
+router.post('/', controller.contectUs);
+
 module.exports = router;
